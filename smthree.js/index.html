@@ -8,18 +8,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="styles.css">
 
-  <script src='http://test.vostrel.net/jquery.reel/jquery.reel.js' type='text/javascript'></script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" type='text/javascript'></script>
 <script src='https://unpkg.com/spritespin@4.0.3/release/spritespin.js' type='text/javascript'></script>
 
-  <script src="js/three.min.js"></script>
-<script src="js/panolens.min.js"></script>
+
 </head>
 <body>
   <a class="button js-fullscreen" href="#">Fullscreen</a>
   <a class="button js-zoom" href="#">Toggle Zoom</a>
+  <div class="wrapper">
 <div class="spritespin"></div>
-
+</div>
 
 <!--
 <div class="mycar">
@@ -54,13 +54,16 @@ $(function() {
   });
   $('.spritespin').spritespin({
     source: SpriteSpin.sourceArray('/new/{frame}.jpg', { frame: [1,9], digits: 2 }),
-    width: 750,
-    height: 700,
+    width: screen.width,
+    height:screen.height,
+    responsive:true,
     sense: -1,
     animate:false,
+    sizeMode:'fit',
     plugins:[
       '360',  // display plugin
       'drag', // interaction plugin
+      'ease',
       'zoom'  // zoom plugin
     ]
   });

@@ -6,31 +6,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Threesixty</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
 
-
-  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type='text/javascript'></script>
+  <script src='https://unpkg.com/spritespin@4.0.3/release/spritespin.js' type='text/javascript'></script>
 
 
 </head>
 <body>
 
+<div class="spritespin"></div>
 
+<script>
 
+$(function(){
+  $('.spritespin').spritespin({
+    source: SpriteSpin.sourceArray('/images/panorama/{frame}.jpg', { frame: [1,2], digits: 2 }),
 
-
-
-  <a-scene>
-        <a-sky src="/images/panorama/01.jpg" rotation="0 -110 0"></a-sky>
-
-        <a-text font="kelsonsans" value="car, AutoScout" width="2" position="-1.5 0.25 -1.5"
-                rotation="0 15 0"></a-text>
-      </a-scene>
-
-
-
-
-
-
+    // this sets the width of the display. The panorama image must be larger
+  width:750,
+  height:700,
+    sense:-1,
+    responsive:true,
+    // select the modules
+    plugins: [
+      // change frame on mouse drag
+      'drag',
+      // enable the easing module. this will ease out the animation
+      // after mouse release, instead of a hard stop
+      'ease',
+      // the panorama display module
+      'panorama'
+    ]
+  });
+});
+</script>
 
 </body>
 </html>

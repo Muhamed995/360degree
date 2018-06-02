@@ -1,1 +1,9 @@
-
+.wrapper{
+  width: 100%!important; /* here it is */
+     height: 0 !important;
+     padding-bottom: 100%;
+     position: relative;
+     overflow: hidden;
+     border-bottom: 1px solid #ccc;
+     margin-bottom: 20px;
+}
